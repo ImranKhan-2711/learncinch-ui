@@ -1,0 +1,74 @@
+@CHARSET "UTF-8";
+
+
+#timeEntry .hour-input {
+	width: 50px;
+	min-height: 15px;
+}
+/*######### To remove spinner arrows from input type number */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+
+.show {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+.holiday {
+	background-color: #FFF2D5 !important;
+}
+
+.greyed {
+	background-color: #f0f0f0!important;
+}
+
+.inline{
+	display: inline-block;
+}
+.tranform-upper{
+	text-transform: uppercase;
+}
+@-moz-document url-prefix() {
+    input[type=file] {
+        margin-top: 0;
+        padding:0px;
+    }
+}
+
+
+.marginzero
+{
+	margin:0px;
+}
+
+.btn-close-align{
+	margin:25px 3px 0px 1px;
+	
+}
+
+.btn-save-align{
+	margin:26px 0px 0px 0px;
+}
+
+.datepick{
+	cursor: default !important; 
+	background-color: #fff !important;
+}
+.error {
+	border-color: red !important;
+	outline: none !important;
+	
+}
+
+.success {
+	border-color: green !important;
+	outline: none !important;
+}

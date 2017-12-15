@@ -27,7 +27,8 @@ public class LoginController {
 		HttpHeaders headers = new HttpHeaders(); 
 		headers.setContentType(MediaType.APPLICATION_JSON);
 		MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
-		map.add("email", "first.last@example.com");
+		map.add("username", "imran");
+		map.add("password", "1");
 		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers); 
 		RestTemplate restTemplate = new RestTemplate();
 		String url = "http://localhost:8090/api/auth/login";

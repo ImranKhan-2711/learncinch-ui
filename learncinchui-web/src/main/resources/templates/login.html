@@ -3,7 +3,7 @@
 layout:decorator="layouts/publicLayout">
 <body>
 <div class="login-box" layout:fragment="content">
-  <form th:action="@{/doLogin}" method="post">
+  <form th:action="@{/authenticate}" method="post">
     <div class="logo-box"> <img th:src="@{/images/logo.png}" src="../static/images/logo.png" alt="Dynamics Logo" />
       <h3 th:text="#{login.title}">Login</h3>
     </div>

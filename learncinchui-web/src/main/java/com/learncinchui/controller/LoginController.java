@@ -1,40 +1,35 @@
 package com.learncinchui.controller;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.http.HttpEntity;
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.web.bind.annotation.PostMapping;
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.client.RestTemplate;
 import org.springframework.web.servlet.ModelAndView;
+
+import com.learncinchui.model.LoginCredentials;
+import com.learncinchui.service.LoginCredentialsService;
 
 @RestController
 public class LoginController {
-	public static final Logger logger = LoggerFactory.getLogger(LoginController.class);
+
+	@Autowired
+	LoginCredentialsService loginCredentialsService;
+	
 	@RequestMapping(value = "/login")
 	public ModelAndView login() {
 		ModelAndView modelAndView = new ModelAndView("login");
 		return modelAndView;
 	}
-@PostMapping("/doLogin")
-	public void doLogin() {
-		HttpHeaders headers = new HttpHeaders(); 
-		headers.setContentType(MediaType.APPLICATION_JSON);
-		MultiValueMap<String, String> map= new LinkedMultiValueMap<String, String>();
-		map.add("username", "imran");
-		map.add("password", "1");
-		HttpEntity<MultiValueMap<String, String>> request = new HttpEntity<MultiValueMap<String, String>>(map, headers); 
-		RestTemplate restTemplate = new RestTemplate();
-		String url = "http://localhost:8090/api/auth/login";
-		//ResponseEntity<String> response = restTemplate.postForEntity( url, request , String.class );
-		 restTemplate.postForEntity( url, request , String.class );
-		logger.info("************Login done**********************");
-		
+
+	@RequestMapping(value = "/authenticate", method = RequestMethod.POST)
+	public ModelAndView autheticate(HttpServletRequest request) {
+		LoginCredentials loginCredentials = new LoginCredentials();
+		loginCredentials.setUserName(request.getParameter("username"));
+		loginCredentials.setPassword(request.getParameter("password"));
+		LoginCredentials loginCredentials2 = loginCredentialsService.authenticateUser(loginCredentials);
+		ModelAndView mvc = new ModelAndView("login");
+		return mvc;
 	}
 }

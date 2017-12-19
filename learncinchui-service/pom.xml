@@ -8,4 +8,11 @@
   <artifactId>learncinchui-service</artifactId>
   <name>learncinchui-service</name>
   <description>learncinchui-service</description>
+  <dependencies>
+  	<dependency>
+  		<groupId>com.learncinchui</groupId>
+  		<artifactId>learncinchui-common</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

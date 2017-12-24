@@ -4,5 +4,5 @@ import com.learncinchui.model.LoginCredentials;
 
 public interface LoginCredentialsService {
 
-	LoginCredentials authenticateUser(LoginCredentials loginCredentials);
+	void authenticateUser(LoginCredentials loginCredentials);
 }

@@ -28,7 +28,7 @@ public class LoginController {
 		LoginCredentials loginCredentials = new LoginCredentials();
 		loginCredentials.setUserName(request.getParameter("username"));
 		loginCredentials.setPassword(request.getParameter("password"));
-		LoginCredentials loginCredentials2 = loginCredentialsService.authenticateUser(loginCredentials);
+		loginCredentialsService.authenticateUser(loginCredentials);
 		ModelAndView mvc = new ModelAndView("login");
 		return mvc;
 	}

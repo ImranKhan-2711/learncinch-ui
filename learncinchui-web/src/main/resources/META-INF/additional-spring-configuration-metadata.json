@@ -1,0 +1,22 @@
+{"properties": [
+  {
+    "name": "welcome.message",
+    "type": "java.lang.String",
+    "description": "A description for 'welcome.message'"
+  },
+  {
+    "name": "welcome.login.message",
+    "type": "java.lang.String",
+    "description": "A description for 'welcome.login.message'"
+  },
+  {
+    "name": "login.title_en_US",
+    "type": "java.lang.String",
+    "description": "A description for 'login.title_en_US'"
+  },
+  {
+    "name": "login.anchor.forgot.password_en_US",
+    "type": "java.lang.String",
+    "description": "A description for 'login.anchor.forgot.password_en_US'"
+  }
+]}
